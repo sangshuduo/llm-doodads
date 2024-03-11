@@ -9,11 +9,8 @@ while user_input != "quit":
     response = completion(model="gpt-3.5-turbo", messages=messages)
 #    print(response)
 
-    resp_str = str(response.choices)
+    content = response.choices[0].message.content
 
-    content_start = resp_str.find("content='") + len("content='")
-    content_end = resp_str.find("', role=")
-    content = resp_str[content_start:content_end]
 
     print("\n" + content + "\n", sep='\n')
 
